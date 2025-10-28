@@ -60,9 +60,11 @@ function MobileMenu() {
 }
 
 // ---------------------- HOME ----------------------
+// ---------------------- HOME ----------------------
 function Home() {
   return (
     <main>
+      {/* Hero Section */}
       <section className="min-h-[70vh] flex items-center bg-gradient-to-b from-green-50 to-white">
         <div className="max-w-6xl mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center">
           <motion.div
@@ -75,7 +77,9 @@ function Home() {
               Healthy Crunch, <br /> Happy Munch
             </h1>
             <p className="mt-6 text-lg text-gray-700 leading-relaxed">
-              Healthy Fleet is a clean, conscious food brand delivering farm-sourced roasted makhana and more — honest ingredients, premium taste, and mindful snacking for modern life.
+              Healthy Fleet is a clean, conscious food brand delivering
+              farm-sourced roasted makhana and more — honest ingredients,
+              premium taste, and mindful snacking for modern life.
             </p>
 
             <div className="mt-8 flex gap-4">
@@ -109,23 +113,35 @@ function Home() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             viewport={{ once: true }}
           >
-            {/* <div className="bg-white rounded-3xl shadow-xl p-6"> */}
-              <img
-            src="https://images.unsplash.com/photo-1544025162-d76694265947"
-            alt="farm"
-            className="rounded-3xl shadow-lg object-cover w-150 h-90"
-          />
-              {/* <img
-                src="snack.jpeg"
-                alt="snack"
-                className="rounded-2xl w-full object-cover h-72"
-              /> */}
-              {/* <div className="mt-4">
-                <div className="text-lg font-semibold text-green-800">Roasted Makhana</div>
-                <div className="text-sm text-gray-500">Light, crunchy & guilt-free</div>
-              </div> */}
-            {/* </div> */}
+            <img
+              src="/IMG_0902.jpg"
+              alt="farm"
+              className="rounded-3xl shadow-lg object-cover w-full h-96"
+            />
           </motion.div>
+        </div>
+      </section>
+
+     {/* Product Image Gallery */}
+      <section className="py-16 px-6 md:px-12 max-w-6xl mx-auto">
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            "/IMG_0903.jpg",
+            "/IMG_0900.jpg",
+            "/IMG_0901.jpg"
+          ].map((url, i) => (
+            <motion.img
+              key={i}
+              src={url}
+              alt={`Healthy snack ${i + 1}`}
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+              viewport={{ once: true }}
+              className="rounded-3xl shadow-lg object-cover h-72 w-full hover:scale-105 transition-transform duration-300"
+            />
+          ))}
         </div>
       </section>
 
@@ -133,17 +149,27 @@ function Home() {
       <section className="max-w-6xl mx-auto px-6 py-16">
         <motion.h3
           initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
+          whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
           className="text-2xl font-bold text-green-800 mb-6"
         >
           Why Healthy Fleet?
         </motion.h3>
+
         <div className="grid md:grid-cols-3 gap-6">
-          <FeatureCard title="Farmer Partnerships" desc="Direct sourcing ensures fair trade and transparency." />
-          <FeatureCard title="Clean Ingredients" desc="100% natural, preservative-free snacks." />
-          <FeatureCard title="Sustainability" desc="Mindful packaging and responsible sourcing." />
+          <FeatureCard
+            title="Farmer Partnerships"
+            desc="Direct sourcing ensures fair trade and transparency."
+          />
+          <FeatureCard
+            title="Clean Ingredients"
+            desc="100% natural, preservative-free snacks."
+          />
+          <FeatureCard
+            title="Sustainability"
+            desc="Mindful packaging and responsible sourcing."
+          />
         </div>
       </section>
     </main>
@@ -242,7 +268,7 @@ function About() {
           className="flex justify-center"
         >
           <img
-            src="https://images.unsplash.com/photo-1544025162-d76694265947"
+            src="/IMG_0903.jpg"
             alt="farm"
             className="rounded-3xl shadow-lg object-cover w-150 h-90"
           />
